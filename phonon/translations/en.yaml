@@ -1,0 +1,36 @@
+configuration:
+  model:
+    name: Model
+    description: >-
+      The Phonon checkpoint: a Hugging Face repo such as OWNER/MODEL, or a folder
+      under /share holding its config.json, tokenizer.json, weights and voices.
+  revision:
+    name: Revision
+    description: >-
+      The branch, tag or commit of the Hugging Face repo. A commit keeps the
+      voice from changing when the repo does. Not used for a folder.
+  language:
+    name: Language
+    description: >-
+      The language the text is in. Numbers, dates and symbols are spelled out
+      for it. "none" reads the text as written.
+  quant:
+    name: Weights
+    description: >-
+      q8 is the fastest on most CPUs. q4k is smaller. f32 is the original
+      weights. The checkpoint must include the file for the one you choose.
+  threads:
+    name: Threads
+    description: >-
+      How many CPU threads to use. 0 uses all of them. Fewer can be faster on a
+      busy machine.
+  hf_token:
+    name: Hugging Face token
+    description: Only needed for a private Hugging Face repo.
+  debug_logging:
+    name: Debug logging
+    description: Log every request in detail.
+network:
+  10200/tcp: >-
+    Wyoming protocol. Home Assistant reaches the app without this. Set a port
+    only to use Phonon from other devices.

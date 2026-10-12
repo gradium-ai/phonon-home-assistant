@@ -1,0 +1,34 @@
+version: 0.1.0
+slug: phonon
+name: Phonon
+description: Local, streaming text to speech with Phonon
+url: https://github.com/gradium-ai/phonon-home-assistant/tree/main/phonon
+arch:
+  - amd64
+  - aarch64
+init: false
+discovery:
+  - wyoming
+# A checkpoint in a folder of its own, for one that is not on Hugging Face.
+map:
+  - share:ro
+# The downloaded checkpoint, which the app downloads again if it is missing.
+backup_exclude:
+  - "*/huggingface"
+options:
+  model: ""
+  revision: main
+  language: en
+  quant: q8
+  threads: 0
+  debug_logging: false
+schema:
+  model: str
+  revision: str
+  language: list(en|fr|de|es|pt|none)
+  quant: list(q8|q4k|f32)
+  threads: int(0,)
+  hf_token: password?
+  debug_logging: bool
+ports:
+  10200/tcp: null

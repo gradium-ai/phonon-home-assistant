@@ -1,0 +1,7 @@
+build_from:
+  amd64: ghcr.io/home-assistant/amd64-base-debian:trixie
+  aarch64: ghcr.io/home-assistant/aarch64-base-debian:trixie
+args:
+  # The ptts-openai-server image the server comes from. It needs a release with the Wyoming
+  # protocol (`--wyoming-addr`); pin a version here when there is one.
+  PTTS_VERSION: main

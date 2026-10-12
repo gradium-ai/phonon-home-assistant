@@ -1,0 +1,47 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Start the Phonon server, answering the Wyoming protocol on port 10200.
+# ==============================================================================
+
+model="$(bashio::config 'model')"
+if [[ -z "${model}" ]]; then
+    bashio::exit.nok "Set the 'model' option: a Hugging Face repo such as OWNER/MODEL, or a folder under /share."
+fi
+
+# Downloads go to /data, so they survive restarts and updates.
+export HF_HOME=/data/huggingface
+if bashio::config.has_value 'hf_token'; then
+    HF_TOKEN="$(bashio::config 'hf_token')"
+    export HF_TOKEN
+fi
+
+threads="$(bashio::config 'threads')"
+if [[ "${threads}" -gt 0 ]]; then
+    export RAYON_NUM_THREADS="${threads}"
+fi
+
+if bashio::config.true 'debug_logging'; then
+    export RUST_LOG=debug
+fi
+
+args=(
+    --config "${model}"
+    --lang "$(bashio::config 'language')"
+    # The HTTP API is for other clients; inside the app, nothing else needs it.
+    --addr 127.0.0.1:8880
+    --wyoming-addr 0.0.0.0:10200
+)
+
+quant="$(bashio::config 'quant')"
+if [[ "${quant}" != 'f32' ]]; then
+    args+=(--quant "${quant}")
+fi
+
+# A folder has no revisions.
+if [[ "${model}" != /* ]]; then
+    args+=(--revision "$(bashio::config 'revision')")
+fi
+
+bashio::log.info "Starting Phonon with ${model}. The first start downloads it, which can take a while."
+exec ptts-openai-server "${args[@]}"

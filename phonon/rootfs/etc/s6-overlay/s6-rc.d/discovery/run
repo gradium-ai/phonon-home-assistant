@@ -1,0 +1,19 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Tell Home Assistant where the server is, once it answers. The model loads (and
+# on the first start downloads) before the port opens, so this can take a while.
+# ==============================================================================
+declare config
+
+until bash -c 'echo "{\"type\": \"describe\"}" > /dev/tcp/127.0.0.1/10200' 2>/dev/null; do
+    sleep 1
+done
+
+config=$(bashio::var.json uri "tcp://$(hostname):10200")
+
+if bashio::discovery "wyoming" "${config}" > /dev/null; then
+    bashio::log.info "Sent discovery information to Home Assistant."
+else
+    bashio::log.error "Discovery message to Home Assistant failed."
+fi

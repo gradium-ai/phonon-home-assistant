@@ -1,0 +1,26 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  addon:
+    name: App configuration
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: frenck/action-addon-linter@v2
+        with:
+          path: ./phonon
+
+  shellcheck:
+    name: Shell scripts
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - run: shellcheck --shell=bash phonon/rootfs/etc/s6-overlay/s6-rc.d/*/run phonon/rootfs/etc/s6-overlay/s6-rc.d/*/finish
