@@ -25,7 +25,7 @@ options:
 schema:
   model: str
   revision: str
-  language: list(en|fr|de|es|pt|none)
+  language: list(en|fr|de|es|pt)
   quant: list(q8|q4k|f32)
   threads: int(0,)
   hf_token: password?

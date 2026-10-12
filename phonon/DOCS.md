@@ -14,7 +14,7 @@ Assistant over the Wyoming protocol.
    integration it offers under **Settings > Devices & services**.
 4. Under **Settings > Voice assistants**, open your assistant and choose
    **Phonon** as the text-to-speech engine. Pick a voice if the checkpoint has
-   several.
+   several. The assistant's language must be the app's **Language**.
 
 ## Options
 
@@ -23,10 +23,9 @@ Assistant over the Wyoming protocol.
   for a checkpoint that is not on Hugging Face.
 - **Revision.** The branch, tag or commit to download. A commit keeps the voice
   the same when the repo changes.
-- **Language.** How numbers, dates and symbols are spelled out: `en`, `fr`,
-  `de`, `es`, `pt`, or `none` to read text as written. When the checkpoint
-  speaks several languages, each voice is listed once per language, such as
-  `default-fr`, and the voice you pick decides.
+- **Language.** The language your assistant speaks: `en`, `fr`, `de`, `es` or
+  `pt`. Numbers, dates and symbols are spelled out for it, and Home Assistant
+  lists the voices under it.
 - **Weights.** `q8` is the fastest on most CPUs. `q4k` is smaller. `f32` is the
   original weights. The checkpoint must include the file for the one you pick.
 - **Threads.** How many CPU threads to use. `0` uses them all.

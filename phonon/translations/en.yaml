@@ -13,7 +13,7 @@ configuration:
     name: Language
     description: >-
       The language the text is in. Numbers, dates and symbols are spelled out
-      for it. "none" reads the text as written.
+      for it, and Home Assistant lists the voices under it.
   quant:
     name: Weights
     description: >-
