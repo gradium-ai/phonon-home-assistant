@@ -2,13 +2,10 @@ configuration:
   model:
     name: Model
     description: >-
-      The Phonon checkpoint: a Hugging Face repo such as OWNER/MODEL, or a folder
-      under /share holding its config.json, tokenizer.json, weights and voices.
-  revision:
-    name: Revision
-    description: >-
-      The branch, tag or commit of the Hugging Face repo. A commit keeps the
-      voice from changing when the repo does. Not used for a folder.
+      Leave empty for the model of your language: Phonon 31m for English,
+      Phonon 40m for the others. Or a Hugging Face repo such as
+      gradium/phonon-40m-multilingual, with @commit to pin a version, or a
+      folder under /share holding its config.json, tokenizer.json and weights.
   language:
     name: Language
     description: >-
@@ -26,7 +23,9 @@ configuration:
       busy machine.
   hf_token:
     name: Hugging Face token
-    description: Only needed for a private Hugging Face repo.
+    description: >-
+      Needed for the Phonon 40m models, which are gated: accept a model's terms
+      on its Hugging Face page first. Also for a private repo.
   debug_logging:
     name: Debug logging
     description: Log every request in detail.

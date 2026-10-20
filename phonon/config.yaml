@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 0.4.0
 slug: phonon
 name: Phonon
 description: Local, streaming text to speech with Phonon
@@ -16,15 +16,12 @@ map:
 backup_exclude:
   - "*/huggingface"
 options:
-  model: ""
-  revision: main
   language: en
   quant: q8
   threads: 0
   debug_logging: false
 schema:
-  model: str
-  revision: str
+  model: str?
   language: list(en|fr|de|es|pt)
   quant: list(q8|q4k|f32)
   threads: int(0,)

@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-ARG PTTS_VERSION=main
+ARG PTTS_VERSION=0.4.0
 
 # The server is the published ptts-openai-server image's: built once by xn-ptts' CI, so
 # installing the app compiles nothing on the device.

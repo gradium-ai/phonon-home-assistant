@@ -12,7 +12,7 @@ and starts speaking a reply while the assistant is still writing it.
 Or add `https://github.com/gradium-ai/phonon-home-assistant` as a repository in
 Home Assistant's app store.
 
-Then install **Phonon**, set its model and language, and start it. The
+Then install **Phonon**, set its language, and start it. The
 [app's documentation](phonon/DOCS.md) walks through the rest.
 
 ## Other installs
