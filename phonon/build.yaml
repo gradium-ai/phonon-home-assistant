@@ -3,4 +3,4 @@ build_from:
   aarch64: ghcr.io/home-assistant/aarch64-base-debian:trixie
 args:
   # The ptts-openai-server image the server comes from.
-  PTTS_VERSION: 0.4.0
+  PTTS_VERSION: 0.7.1

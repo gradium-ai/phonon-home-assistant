@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.1
+
+- Runs the Phonon 0.7.1 server.
+- New **Volume boost (dB)** option to make the speech louder without clipping.
+
 ## 0.4.0
 
 - Runs the Phonon 0.4.0 server.
