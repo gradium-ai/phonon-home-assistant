@@ -36,10 +36,6 @@ Assistant over the Wyoming protocol.
 - **Weights.** `q8` is the fastest on most CPUs. `q4k` is smaller. `f32` is the
   original weights. The checkpoint must include the file for the one you pick.
 - **Threads.** How many CPU threads to use. `0` uses them all.
-- **Volume boost (dB).** Phonon speaks a little more quietly than some other
-  engines. `3` makes it about as loud as Home Assistant Cloud's voices, so
-  announcements play at one volume. Peaks are kept from clipping. A negative
-  value makes it quieter. `0` leaves the level as it is.
 - **Hugging Face token.** For the gated Phonon 40m models, after you accept a
   model's terms on its Hugging Face page, and for a private repo.
 

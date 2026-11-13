@@ -55,11 +55,5 @@ if [[ -n "${model}" ]]; then
     args+=(--model "${model}")
 fi
 
-# The server keeps raised peaks below -1 dBFS, so a positive gain does not clip.
-gain_db="$(bashio::config 'gain_db')"
-if [[ "${gain_db}" != '0' && "${gain_db}" != '0.0' ]]; then
-    args+=(--gain-db "${gain_db}")
-fi
-
 bashio::log.info "Starting Phonon with ${model:-the default model}. The first start downloads it and the voices, which can take a while."
 exec ptts-openai-server "${args[@]}"
