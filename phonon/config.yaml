@@ -1,4 +1,4 @@
-version: 0.7.1
+version: 0.4.0
 slug: phonon
 name: Phonon
 description: Local, streaming text to speech with Phonon
@@ -19,14 +19,12 @@ options:
   language: en
   quant: q8
   threads: 0
-  gain_db: 0
   debug_logging: false
 schema:
   model: str?
   language: list(en|fr|de|es|pt)
   quant: list(q8|q4k|f32)
   threads: int(0,)
-  gain_db: float(-12,12)
   hf_token: password?
   debug_logging: bool
 ports:
