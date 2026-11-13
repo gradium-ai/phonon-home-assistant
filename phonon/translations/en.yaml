@@ -21,6 +21,11 @@ configuration:
     description: >-
       How many CPU threads to use. 0 uses all of them. Fewer can be faster on a
       busy machine.
+  gain_db:
+    name: Volume boost (dB)
+    description: >-
+      Makes the speech louder, for example 3 to match other text-to-speech
+      engines. Peaks are kept from clipping. A negative value makes it quieter.
   hf_token:
     name: Hugging Face token
     description: >-
